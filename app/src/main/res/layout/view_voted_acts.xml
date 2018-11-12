@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/load_acts"
+        android:id="@+id/load_top_acts"
         android:layout_width="250dp"
         android:layout_height="300dp"
         android:layout_marginBottom="8dp"
@@ -30,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:text="Today's Voted Acts Are"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/load_acts"
+        app:layout_constraintBottom_toTopOf="@+id/load_top_acts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -43,19 +43,19 @@
         android:layout_marginTop="8dp"
         android:text="Cast Vote"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/load_acts"
+        app:layout_constraintTop_toBottomOf="@+id/load_top_acts"
         app:layout_constraintVertical_bias="0.507"
         tools:layout_editor_absoluteX="37dp"/>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="125"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Buy Tickets"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/load_acts"
-        app:layout_constraintVertical_bias="0.507"
-        tools:layout_editor_absoluteX="220dp"/>
+            android:id="@+id/buy_ticket"
+            android:layout_width="125"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Buy Tickets"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/load_top_acts"
+            app:layout_constraintVertical_bias="0.507"
+            tools:layout_editor_absoluteX="220dp"/>
 </android.support.constraint.ConstraintLayout>
