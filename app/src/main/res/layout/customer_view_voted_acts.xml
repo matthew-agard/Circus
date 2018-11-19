@@ -6,31 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/load_top_acts"
-        android:layout_width="250dp"
-        android:layout_height="300dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389"/>
-
     <TextView
         android:id="@+id/display_acts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Today's Voted Acts Are"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/load_top_acts"
+        app:layout_constraintBottom_toTopOf="@+id/load_all_acts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -45,19 +31,26 @@
         android:text="Cast Vote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/load_top_acts"
-        app:layout_constraintVertical_bias="0.507"/>
+        app:layout_constraintTop_toBottomOf="@+id/load_all_acts"/>
 
     <Button
         android:id="@+id/buy_ticket"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:text="Buy Tickets"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/load_top_acts"
-        app:layout_constraintVertical_bias="0.507"/>
+        app:layout_constraintTop_toBottomOf="@+id/load_all_acts"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/load_all_acts"
+        android:layout_width="326dp"
+        android:layout_height="342dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="72dp"/>
 </android.support.constraint.ConstraintLayout>

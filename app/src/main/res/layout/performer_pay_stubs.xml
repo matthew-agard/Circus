@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pay_period_text"
+        android:layout_width="158dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:text="Choose Pay Period"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Spinner
+        android:id="@+id/choose_pay_period"
+        android:layout_width="182dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toEndOf="@+id/date_text"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/view_stubs"
+        android:layout_width="354dp"
+        android:layout_height="276dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_pay_period"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="110dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Your Pay =  $"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_stubs"
+        app:layout_constraintVertical_bias="0.44"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/view_stubs"
+        app:layout_constraintVertical_bias="0.431"/>
+
+</android.support.constraint.ConstraintLayout>
