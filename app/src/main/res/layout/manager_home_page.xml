@@ -17,7 +17,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.715"
-        app:layout_constraintStart_toEndOf="@+id/employees_text"
+        app:layout_constraintStart_toEndOf="@+id/performers_text"
         app:layout_constraintTop_toBottomOf="@+id/view_schedule"/>
 
     <ImageButton
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.866"
-        app:layout_constraintStart_toEndOf="@+id/manage_employees"
+        app:layout_constraintStart_toEndOf="@+id/manage_performers"
         app:layout_constraintTop_toBottomOf="@+id/circus_acts_text"
         app:layout_constraintVertical_bias="0.111"/>
 
@@ -61,18 +61,18 @@
         app:layout_constraintTop_toBottomOf="@+id/logout"/>
 
     <TextView
-        android:id="@+id/employees_text"
+        android:id="@+id/performers_text"
         android:layout_width="92dp"
         android:layout_height="24dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="40dp"
-        android:text="Employees"
+        android:text="Performers"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_payroll"/>
 
     <ImageButton
-        android:id="@+id/manage_employees"
+        android:id="@+id/manage_performers"
         android:layout_width="135dp"
         android:layout_height="135dp"
         android:layout_marginStart="16dp"
@@ -81,7 +81,7 @@
         android:src="@drawable/manage_employees"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/employees_text"
+        app:layout_constraintTop_toBottomOf="@+id/performers_text"
         app:layout_constraintVertical_bias="0.04"/>
 
     <TextView
