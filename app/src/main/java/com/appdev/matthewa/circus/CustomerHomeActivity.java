@@ -16,6 +16,7 @@ public class CustomerHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Customer Home Page");
         setContentView(R.layout.customer_home_page);
 
         createCircusDay = findViewById(R.id.view_pay_stubs);
@@ -50,13 +51,13 @@ public class CustomerHomeActivity extends AppCompatActivity {
             }
         });
 
-        logout = findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                endUserSession();
-            }
-        });
+//        logout = findViewById(R.id.logout);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                endUserSession();
+//            }
+//        });
     }
 
     private void visitCircus() {
@@ -69,8 +70,8 @@ public class CustomerHomeActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void endUserSession() {
-        Intent i = new Intent(CustomerHomeActivity.this, );
-        startActivity(i);
-    }
+//    private void endUserSession() {
+//        Intent i = new Intent(CustomerHomeActivity.this, );
+//        startActivity(i);
+//    }
 }

@@ -7,5 +7,61 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"/>
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="Circus">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".CustomerCreateAccountActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".CustomerHomeActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".CustomerPickCircusDateActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".CustomerCircusDateDetailsActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".CustomerPurchaseTicketActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".CustomerCastVoteActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".CustomerReviewActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".PerformerHomeActivity"
+            android:label="Circus">
+        </activity>
+
+        <activity
+            android:name=".ManagerHomeActivity"
+            android:label="Circus">
+        </activity>
+    </application>
 </manifest>

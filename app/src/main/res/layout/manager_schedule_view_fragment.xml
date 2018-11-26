@@ -16,14 +16,14 @@
         android:layout_marginBottom="8dp"
         android:text="Today's Voted Acts Are"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/load_all_acts"
+        app:layout_constraintBottom_toTopOf="@+id/load_voted_acts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.333"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/load_all_acts"
+        android:id="@+id/load_voted_acts"
         android:layout_width="326dp"
         android:layout_height="342dp"
         android:layout_marginStart="8dp"

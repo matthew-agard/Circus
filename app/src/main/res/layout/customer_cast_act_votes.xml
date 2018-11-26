@@ -12,7 +12,7 @@
             app:layout_constraintTop_toBottomOf="@+id/display_performances" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/confirm_vote" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:id="@+id/load_all_acts"/>
+            android:layout_marginStart="8dp" android:id="@+id/load_voted_acts"/>
     <TextView
             android:text="Choose the 3 acts you are most interested in watching"
             android:layout_width="329dp"

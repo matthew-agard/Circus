@@ -66,13 +66,13 @@ public class PerformerHomeActivity extends AppCompatActivity {
             }
         });
 
-        logout = findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                endUserSession();
-            }
-        });
+//        logout = findViewById(R.id.logout);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                endUserSession();
+//            }
+//        });
     }
 
     private void viewPayStubs() {
@@ -90,8 +90,8 @@ public class PerformerHomeActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void endUserSession() {
-        Intent i = new Intent(PerformerHomeActivity.this, );
-        startActivity(i);
-    }
+//    private void endUserSession() {
+//        Intent i = new Intent(PerformerHomeActivity.this, );
+//        startActivity(i);
+//    }
 }

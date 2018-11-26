@@ -112,7 +112,7 @@ public class ManagerHomeActivity extends AppCompatActivity {
     }
 
     private void endUserSession() {
-        Intent i = new Intent(ManagerHomeActivity.this, );
+        Intent i = new Intent(ManagerHomeActivity.this, LoginActivity.class);
         startActivity(i);
     }
 }

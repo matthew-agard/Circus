@@ -7,7 +7,7 @@
                                              android:layout_height="match_parent"
     >
 
-    <DatePicker
+    <CalendarView
         android:id="@+id/pick_date"
         android:layout_width="348dp"
         android:layout_height="372dp"

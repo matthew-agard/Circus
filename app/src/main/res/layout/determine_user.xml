@@ -20,7 +20,8 @@
         app:layout_constraintBottom_toTopOf="@+id/user_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circus_picture"/>
+        app:layout_constraintTop_toBottomOf="@+id/circus_picture"
+        app:layout_constraintVertical_chainStyle="spread_inside"/>
 
     <Spinner
         android:id="@+id/user_type"
@@ -32,39 +33,38 @@
         android:layout_marginBottom="35dp"
         app:layout_constraintBottom_toTopOf="@+id/user_username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome"/>
 
     <EditText
         android:id="@+id/user_password"
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="336dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/user_username"/>
 
     <EditText
         android:id="@+id/user_username"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/user_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_type"
-        app:layout_constraintVertical_bias="0.562"/>
+        />
 
     <Button
         android:id="@+id/login"
@@ -100,6 +100,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:clickable="false"
         android:text="Don't have an account? Make one today!"
         android:textSize="16sp"
         android:visibility="invisible"
