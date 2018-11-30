@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,8 +18,6 @@ public class CustomerReviewActivity extends AppCompatActivity {
     private Spinner attendanceDate, actType;
     private EditText userReview;
     private Button submitReview;
-
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     private class DateAdapter extends ArrayAdapter<Date> {
         public DateAdapter(ArrayList<Date> dates) {

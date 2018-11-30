@@ -1,12 +1,11 @@
 package com.appdev.matthewa.circus;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,21 +14,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "LoginActivity";
     private Spinner userSpinner;
     private EditText email, password;
-    private String sEmail, sPassword;
     private Button login;
     private TextView createAccount;
-    private FirebaseAuth mAuth;
-    private String userTypePosition = 0;
+    private int userTypePosition = 0;
+    private boolean validLogin;
+    private CircusDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +30,17 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.determine_user);
         setTitle("Login");
 
-        mAuth = FirebaseAuth.getInstance();
+        db = CircusDatabase.getDatabase(this);
 
         userSpinner = findViewById(R.id.user_type);
-        final ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.user_type, android.R.layout.simple_spinner_item);
+        final ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.user_type, android.R.layout.simple_spinner_dropdown_item);
         userSpinner.setAdapter(adapter);
 
         userSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                verifyAccountCreation(position);
+                userTypePosition = position;
+                verifyAccountCreation(userTypePosition);
             }
 
             @Override
@@ -64,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                sEmail = s.toString().trim();
+
             }
 
             @Override
@@ -82,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                sPassword = s.toString().trim();
+
             }
 
             @Override
@@ -95,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signInUser(sEmail, sPassword);
+                signInUser(email.getText().toString(), password.getText().toString());
             }
         });
 
@@ -108,11 +102,79 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+    private class CustomerLoginTask extends AsyncTask<Customer, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Customer... customers) {
+            Customer user = db.customerDAO().findCustomerLogin(customers[0].getEmail(), customers[0].getPassword());
+
+            if(user == null)
+                validLogin = false;
+            else
+                validLogin = true;
+
+            return validLogin;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean validLogin) {
+            if (validLogin) {
+                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
+                startActivity(i);
+            }
+            else
+                Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private class PerformerLoginTask extends AsyncTask<Performer, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Performer... performers) {
+            Customer user = db.performerDAO().findPerformerLogin(performers[0].getEmail(), performers[0].getPassword());
+
+            if(user == null)
+                validLogin = false;
+            else
+                validLogin = true;
+
+            return validLogin;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean validLogin) {
+            if (validLogin) {
+                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(LoginActivity.this, PerformerHomeActivity.class);
+                startActivity(i);
+            }
+            else
+                Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private class ManagerLoginTask extends AsyncTask<Manager, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Manager... managers) {
+            Customer user = db.managerDAO().findManagerLogin(managers[0].getEmail(), managers[0].getPassword());
+
+            if(user == null)
+                validLogin = false;
+            else
+                validLogin = true;
+
+            return validLogin;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean validLogin) {
+            if (validLogin) {
+                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
+                startActivity(i);
+            }
+            else
+                Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void createUserAccount() {
@@ -133,22 +195,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signInUser(String email, String password) {
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            Toast.makeText(LoginActivity.this, "Authentication successful", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            if ()
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        if(userTypePosition == 0)
+            new CustomerLoginTask().execute(new Customer(email, password));
+
+        else if (userTypePosition == 1)
+            new PerformerLoginTask().execute(new Performer(email, password));
+
+        else
+            new ManagerLoginTask().execute(new Manager(email, password));
     }
 }

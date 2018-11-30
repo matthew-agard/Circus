@@ -86,7 +86,7 @@ public class PerformerHomeActivity extends AppCompatActivity {
     }
 
     private void viewCustomerReviews() {
-        Intent i = new Intent(PerformerHomeActivity.this, PerformerReviewActivity.class);
+        Intent i = new Intent(PerformerHomeActivity.this, PerformerFeedbackActivity.class);
         startActivity(i);
     }
 

@@ -1,34 +1,21 @@
 package com.appdev.matthewa.circus;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import android.arch.persistence.room.Entity;
+import android.support.annotation.NonNull;
 
+@Entity(primaryKeys = {"act"})
 public class Act {
-    private UUID id;
-    private String actName;
-    private ArrayList<Performer> actPerformers;
 
-    public Act() {
-        id = UUID.randomUUID();
+    @NonNull private String act;
+
+    public String getAct() {
+        return act;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public String getActName() {
-        return actName;
-    }
-
-    public void setActName(String actName) {
-        this.actName = actName;
-    }
-
-    public ArrayList<Performer> getActPerformers() {
-        return actPerformers;
-    }
-
-    public void setActPerformers(ArrayList<Performer> actPerformers) {
-        this.actPerformers = actPerformers;
+    public void setAct(String act) {
+        this.act = act;
     }
 }
+
+
+

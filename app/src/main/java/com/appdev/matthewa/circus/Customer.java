@@ -1,46 +1,33 @@
 package com.appdev.matthewa.circus;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.auth.FirebaseUser;
+import android.arch.persistence.room.Entity;
+import android.support.annotation.NonNull;
 
-import java.util.UUID;
-
+@Entity(primaryKeys = {"email", "password"})
 public class Customer {
-    private UUID id;
-    private String username;
-    private String password;
+    @NonNull private String email;
+    @NonNull private String password;
 
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    FirebaseUser user = firebaseAuth.getCurrentUser();
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-
-    public Customer() {
-        id = UUID.randomUUID();
+    public Customer(@NonNull String email, @NonNull String password) {
+        this.email = email;
+        this.password = password;
     }
 
-    public UUID getId() {
-        return id;
+    @NonNull
+    public String getEmail() {
+        return email;
     }
 
-    public String getUsername() {
-        return username;
+    public void setEmail(@NonNull String email) {
+        this.email = email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+    @NonNull
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(@NonNull String password) {
         this.password = password;
-    }
-
-    public void updateCustomer(Customer customer) {
-        databaseReference.child(user.getUid()).setValue(customer);
     }
 }

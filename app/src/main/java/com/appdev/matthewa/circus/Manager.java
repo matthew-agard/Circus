@@ -4,14 +4,14 @@ import android.arch.persistence.room.Entity;
 import android.support.annotation.NonNull;
 
 @Entity(primaryKeys = {"email", "password"})
-public class Performer {
+public class Manager {
 
     @NonNull private String email;
     @NonNull private String password;
     @NonNull private String name;
     @NonNull private String act;
 
-    public Performer(@NonNull String email, @NonNull String password) {
+    public Manager(@NonNull String email, @NonNull String password) {
         this.email = email;
         this.password = password;
     }

@@ -1,35 +1,55 @@
 package com.appdev.matthewa.circus;
 
-import java.util.Date;
-import java.util.UUID;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
+@Entity(tableName = "Reviews")
 public class Review {
-    private UUID id;
-    private Date attendanceDate;
-    private Act actName;
+    @PrimaryKey(autoGenerate = true)
+    private int uid;
+
+    @ColumnInfo(name = "customer")
+    private String customerEmail;
+
+    @ColumnInfo(name = "date")
+    private String attendanceDate;
+
+    @ColumnInfo(name = "act")
+    private String actName;
+
+    @ColumnInfo(name = "review")
     private String reviewText;
 
-    public Review() {
-        id = UUID.randomUUID();
+    public int getUid() {
+        return uid;
     }
 
-    public UUID getId() {
-        return id;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
-    public Date getAttendanceDate() {
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+    public String getAttendanceDate() {
         return attendanceDate;
     }
 
-    public void setAttendanceDate(Date attendanceDate) {
+    public void setAttendanceDate(String attendanceDate) {
         this.attendanceDate = attendanceDate;
     }
 
-    public Act getActName() {
+    public String getActName() {
         return actName;
     }
 
-    public void setActName(Act actName) {
+    public void setActName(String actName) {
         this.actName = actName;
     }
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/schedule_performer"
         android:layout_width="347dp"
         android:layout_height="428dp"
         android:layout_marginStart="8dp"
