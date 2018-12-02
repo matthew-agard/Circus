@@ -3,23 +3,23 @@ package com.appdev.matthewa.circus;
 import android.arch.persistence.room.Entity;
 import android.support.annotation.NonNull;
 
-@Entity(primaryKeys = {"email", "password"})
+@Entity(primaryKeys = {"username"})
 public class Customer {
-    @NonNull private String email;
+    @NonNull private String username;
     @NonNull private String password;
 
-    public Customer(@NonNull String email, @NonNull String password) {
-        this.email = email;
+    public Customer(@NonNull String username, @NonNull String password) {
+        this.username = username;
         this.password = password;
     }
 
     @NonNull
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(@NonNull String email) {
-        this.email = email;
+    public void setUsername(@NonNull String username) {
+        this.username = username;
     }
 
     @NonNull
@@ -31,3 +31,5 @@ public class Customer {
         this.password = password;
     }
 }
+
+

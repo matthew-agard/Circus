@@ -42,11 +42,12 @@ public class PerformerPayStubsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.performer_pay_stubs);
+        setTitle("Pay Stubs");
 
-        displayPayStubs = findViewById(R.id.view_stubs);
-        displayPayStubs.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        displayPayStubs.setLayoutManager(mLayoutManager);
+//        displayPayStubs = findViewById(R.id.view_stubs);
+//        displayPayStubs.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        displayPayStubs.setLayoutManager(mLayoutManager);
 
     }
 }

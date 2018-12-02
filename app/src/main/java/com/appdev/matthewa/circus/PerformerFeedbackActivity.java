@@ -40,11 +40,12 @@ public class PerformerFeedbackActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.performer_pay_stubs);
-
-        displayReviews = findViewById(R.id.choose_review);
-        displayReviews.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        displayReviews.setLayoutManager(mLayoutManager);
+        setTitle("View Feedback");
+//
+//        displayReviews = findViewById(R.id.choose_review);
+//        displayReviews.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        displayReviews.setLayoutManager(mLayoutManager);
 
     }
 }

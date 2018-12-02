@@ -3,18 +3,27 @@ package com.appdev.matthewa.circus;
 import android.arch.persistence.room.Entity;
 import android.support.annotation.NonNull;
 
-@Entity(primaryKeys = {"email", "password"})
-public class Manager {
+@Entity(primaryKeys = {"email"})
+public class Employee {
 
     @NonNull private String email;
     @NonNull private String password;
     @NonNull private String name;
-    @NonNull private String act;
+    @NonNull private String employeeType;
+    private String act;
 
-    public Manager(@NonNull String email, @NonNull String password) {
+    public Employee(@NonNull String email, @NonNull String password) {
         this.email = email;
         this.password = password;
     }
+
+//    public Employee(@NonNull String email, @NonNull String password, @NonNull String name, @NonNull String employeeType, String act) {
+//        this.email = email;
+//        this.password = password;
+//        this.name = name;
+//        this.employeeType = employeeType;
+//        this.act = act;
+//    }
 
     @NonNull
     public String getEmail() {
@@ -44,11 +53,19 @@ public class Manager {
     }
 
     @NonNull
+    public String getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(@NonNull String employeeType) {
+        this.employeeType = employeeType;
+    }
+
     public String getAct() {
         return act;
     }
 
-    public void setAct(@NonNull String act) {
+    public void setAct(String act) {
         this.act = act;
     }
 }

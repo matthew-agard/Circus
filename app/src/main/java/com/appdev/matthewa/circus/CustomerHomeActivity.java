@@ -55,7 +55,7 @@ public class CustomerHomeActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                endUserSession();
+                finish();
             }
         });
     }
@@ -67,11 +67,6 @@ public class CustomerHomeActivity extends AppCompatActivity {
 
     private void writeReview() {
         Intent i = new Intent(CustomerHomeActivity.this, CustomerReviewActivity.class);
-        startActivity(i);
-    }
-
-    private void endUserSession() {
-        Intent i = new Intent(CustomerHomeActivity.this, LoginActivity.class);
         startActivity(i);
     }
 }

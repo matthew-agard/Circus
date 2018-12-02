@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
     private class CustomerLoginTask extends AsyncTask<Customer, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Customer... customers) {
-            Customer user = db.customerDAO().findCustomerLogin(customers[0].getEmail(), customers[0].getPassword());
+            Customer user = db.customerDAO().findCustomerLogin(customers[0].getUsername(), customers[0].getPassword());
 
             if(user == null)
                 validLogin = false;
@@ -119,6 +119,8 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean validLogin) {
             if (validLogin) {
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                email.getText().clear();
+                password.getText().clear();
                 Intent i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
                 startActivity(i);
             }
@@ -127,10 +129,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private class PerformerLoginTask extends AsyncTask<Performer, Void, Boolean> {
+    private class PerformerLoginTask extends AsyncTask<Employee, Void, Boolean> {
         @Override
-        protected Boolean doInBackground(Performer... performers) {
-            Customer user = db.performerDAO().findPerformerLogin(performers[0].getEmail(), performers[0].getPassword());
+        protected Boolean doInBackground(Employee... employees) {
+            Employee user = db.employeeDAO().findPerformerLogin(employees[0].getEmail(), employees[0].getPassword());
 
             if(user == null)
                 validLogin = false;
@@ -144,6 +146,8 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean validLogin) {
             if (validLogin) {
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                email.getText().clear();
+                password.getText().clear();
                 Intent i = new Intent(LoginActivity.this, PerformerHomeActivity.class);
                 startActivity(i);
             }
@@ -152,10 +156,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private class ManagerLoginTask extends AsyncTask<Manager, Void, Boolean> {
+    private class ManagerLoginTask extends AsyncTask<Employee, Void, Boolean> {
         @Override
-        protected Boolean doInBackground(Manager... managers) {
-            Customer user = db.managerDAO().findManagerLogin(managers[0].getEmail(), managers[0].getPassword());
+        protected Boolean doInBackground(Employee... employees) {
+            Employee user = db.employeeDAO().findManagerLogin(employees[0].getEmail(), employees[0].getPassword());
 
             if(user == null)
                 validLogin = false;
@@ -169,7 +173,9 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean validLogin) {
             if (validLogin) {
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
+                email.getText().clear();
+                password.getText().clear();
+                Intent i = new Intent(LoginActivity.this, ManagerHomeActivity.class);
                 startActivity(i);
             }
             else
@@ -178,8 +184,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void createUserAccount() {
+        email.getText().clear();
+        password.getText().clear();
         Intent i = new Intent(LoginActivity.this, CustomerCreateAccountActivity.class);
         startActivity(i);
+//        new CreatePerformersTask().execute(new Employee("daniel@circus.org", "animals1", "Daniel", "Performer", "Animals"),
+//                                            new Employee("nathan@circus.org", "clowns1", "Nathan", "Performer", "Clowns"),
+//                                            new Employee("greg@circus.org", "juggles1", "Greg", "Performer", "Juggling"),
+//                                            new Employee("alexis@circus.org", "stilts1", "Alexis", "Performer", "Stilts"),
+//                                            new Employee("kayla@circus.org", "tightrope1", "Kayla", "Performer", "Tightrope"),
+//                                            new Employee("bobby@circus.org", "trapeze1", "Bobby", "Performer", "Trapeze"),
+//                                            new Employee("ashley@circus.org", "unicycle1", "Ashley", "Performer", "Unicycle"));
+//        new CreateManagersTask().execute(new Employee("matthew@circus.org", "master", "Matthew Agard", "Manager", null),
+//                                            new Employee("min@circus.org", "master", "Min Seung", "Manager", null));
     }
 
     private void verifyAccountCreation(int userTypePosition) {
@@ -199,9 +216,9 @@ public class LoginActivity extends AppCompatActivity {
             new CustomerLoginTask().execute(new Customer(email, password));
 
         else if (userTypePosition == 1)
-            new PerformerLoginTask().execute(new Performer(email, password));
+            new PerformerLoginTask().execute(new Employee(email, password));
 
         else
-            new ManagerLoginTask().execute(new Manager(email, password));
+            new ManagerLoginTask().execute(new Employee(email, password));
     }
 }

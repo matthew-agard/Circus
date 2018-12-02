@@ -3,29 +3,29 @@ package com.appdev.matthewa.circus;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
-@Database(entities = {Act.class, Customer.class, Manager.class, Payroll.class, Performer.class,
-                        Revenue.class, Review.class, Schedule.class, Votes.class}, version = 1)
+@Database(entities = {Act.class, Customer.class, Employee.class, Payroll.class,
+                        Review.class, TicketPurchases.class, Votes.class}, version = 2)
+@TypeConverters({DateConverter.class})
 public abstract class CircusDatabase extends RoomDatabase {
 
     private static CircusDatabase INSTANCE;
     public abstract ActDAO actDAO();
     public abstract CustomerDAO customerDAO();
-    public abstract ManagerDAO managerDAO();
+    public abstract EmployeeDAO employeeDAO();
     public abstract PayrollDAO payrollDAO();
-    public abstract PerformerDAO performerDAO();
-    public abstract RevenueDAO revenueDAO();
+    public abstract TicketPurchasesDAO ticketPurchasesDAO();
     public abstract ReviewDAO reviewDAO();
-    public abstract ScheduleDAO scheduleDAO();
     public abstract VotesDAO votesDAO();
 
     static CircusDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
             synchronized (CircusDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            CircusDatabase.class, "Circus-Database").build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), CircusDatabase.class,
+                            "Circus-Database").fallbackToDestructiveMigration().build();
                 }
             }
         }
@@ -37,4 +37,6 @@ public abstract class CircusDatabase extends RoomDatabase {
     public void clearAllTables() {
         // Not utilized
     }
+
+
 }

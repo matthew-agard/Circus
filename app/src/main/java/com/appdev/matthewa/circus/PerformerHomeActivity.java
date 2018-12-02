@@ -17,6 +17,7 @@ public class PerformerHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.performer_home_page);
+        setTitle("Performer Home Page");
 
         payStubs = findViewById(R.id.view_pay_stubs);
         payStubs.setOnClickListener(new View.OnClickListener() {
@@ -66,13 +67,13 @@ public class PerformerHomeActivity extends AppCompatActivity {
             }
         });
 
-//        logout = findViewById(R.id.logout);
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                endUserSession();
-//            }
-//        });
+        logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void viewPayStubs() {
@@ -89,9 +90,4 @@ public class PerformerHomeActivity extends AppCompatActivity {
         Intent i = new Intent(PerformerHomeActivity.this, PerformerFeedbackActivity.class);
         startActivity(i);
     }
-
-//    private void endUserSession() {
-//        Intent i = new Intent(PerformerHomeActivity.this, );
-//        startActivity(i);
-//    }
 }

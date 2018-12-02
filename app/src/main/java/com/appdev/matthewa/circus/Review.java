@@ -1,63 +1,56 @@
 package com.appdev.matthewa.circus;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+import java.util.Date;
 
-@Entity(tableName = "Reviews")
+@Entity(primaryKeys = {"customer", "attendanceDate", "act"})
 public class Review {
-    @PrimaryKey(autoGenerate = true)
-    private int uid;
+    @NonNull private String customer;
+    @NonNull private Date attendanceDate;
+    @NonNull private String act;
+    @NonNull private String review;
 
-    @ColumnInfo(name = "customer")
-    private String customerEmail;
-
-    @ColumnInfo(name = "date")
-    private String attendanceDate;
-
-    @ColumnInfo(name = "act")
-    private String actName;
-
-    @ColumnInfo(name = "review")
-    private String reviewText;
-
-    public int getUid() {
-        return uid;
+    public Review(@NonNull String customer, @NonNull Date attendanceDate, @NonNull String act, @NonNull String review) {
+        this.customer = customer;
+        this.attendanceDate = attendanceDate;
+        this.act = act;
+        this.review = review;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    @NonNull
+    public String getCustomer() {
+        return customer;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public void setCustomer(@NonNull String customer) {
+        this.customer = customer;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public String getAttendanceDate() {
+    @NonNull
+    public Date getAttendanceDate() {
         return attendanceDate;
     }
 
-    public void setAttendanceDate(String attendanceDate) {
+    public void setAttendanceDate(@NonNull Date attendanceDate) {
         this.attendanceDate = attendanceDate;
     }
 
-    public String getActName() {
-        return actName;
+    @NonNull
+    public String getAct() {
+        return act;
     }
 
-    public void setActName(String actName) {
-        this.actName = actName;
+    public void setAct(@NonNull String act) {
+        this.act = act;
     }
 
-    public String getReviewText() {
-        return reviewText;
+    @NonNull
+    public String getReview() {
+        return review;
     }
 
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
+    public void setReview(@NonNull String review) {
+        this.review = review;
     }
 }

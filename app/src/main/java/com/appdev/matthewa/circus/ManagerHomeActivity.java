@@ -17,6 +17,7 @@ public class ManagerHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_home_page);
+        setTitle("Manager Home Page");
 
         payroll = findViewById(R.id.view_payroll);
         payroll.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +87,7 @@ public class ManagerHomeActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                endUserSession();
+                finish();
             }
         });
     }
@@ -108,11 +109,6 @@ public class ManagerHomeActivity extends AppCompatActivity {
 
     private void manageActs() {
         Intent i = new Intent(ManagerHomeActivity.this, ManagerActsActivity.class);
-        startActivity(i);
-    }
-
-    private void endUserSession() {
-        Intent i = new Intent(ManagerHomeActivity.this, LoginActivity.class);
         startActivity(i);
     }
 }
