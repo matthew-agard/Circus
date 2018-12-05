@@ -6,9 +6,15 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CalendarView;
+import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CustomerPickCircusDateActivity extends AppCompatActivity {
-    private CalendarView chosenDate;
+    private CalendarView calendar;
     private String customerUsername;
 
     @Override
@@ -19,12 +25,21 @@ public class CustomerPickCircusDateActivity extends AppCompatActivity {
 
         customerUsername = getIntent().getStringExtra("Username");
 
-        chosenDate = findViewById(R.id.pick_date);
-        chosenDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        calendar = findViewById(R.id.pick_date);
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                viewVotedActs(chosenDate.getDate());
+                try {
+                    String stringDate = (month + 1) + "-" + dayOfMonth + "-" + year;
+                    DateFormat formattedDate = new SimpleDateFormat("MM-dd-yyyy");
+                    Date date = formattedDate.parse(stringDate);
+                    viewVotedActs(date.getTime());
+                }
+                catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
+
         });
     }
 
