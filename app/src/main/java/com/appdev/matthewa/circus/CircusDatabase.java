@@ -6,13 +6,12 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
-@Database(entities = {Act.class, Customer.class, Employee.class, Payroll.class,
-                        Review.class, TicketPurchases.class, Votes.class}, version = 2)
+@Database(entities = {Customer.class, Employee.class, Payroll.class, Review.class,
+                        TicketPurchases.class, Votes.class}, version = 3)
 @TypeConverters({DateConverter.class})
 public abstract class CircusDatabase extends RoomDatabase {
 
     private static CircusDatabase INSTANCE;
-    public abstract ActDAO actDAO();
     public abstract CustomerDAO customerDAO();
     public abstract EmployeeDAO employeeDAO();
     public abstract PayrollDAO payrollDAO();

@@ -26,7 +26,7 @@ public class CustomerReviewActivity extends AppCompatActivity {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = getLayoutInflater().inflate(R.layout.list_item_date, null);
+                convertView = getLayoutInflater().inflate(R.layout.list_item_acts, null);
             }
 
             Date date = getItem(position);

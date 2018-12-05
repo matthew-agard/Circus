@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class CustomerCreateAccountActivity extends AppCompatActivity {
-    private EditText email, password, confirmPassword;
+    private EditText username, password, confirmPassword;
     private Button createAccount;
     private CircusDatabase db;
 
@@ -36,8 +36,8 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
 
         db = CircusDatabase.getDatabase(this);
 
-        email = findViewById(R.id.username);
-        email.addTextChangedListener(new TextWatcher() {
+        username = findViewById(R.id.username);
+        username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -95,7 +95,7 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (password.getText().toString().equals(confirmPassword.getText().toString())) {
-                    createAccount(email.getText().toString(), password.getText().toString());
+                    createAccount(username.getText().toString(), password.getText().toString());
                 }
 
                 else
@@ -106,8 +106,9 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
 
     private void createAccount(String userEmail, String userPassword) {
         new CreateCustomerTask().execute(new Customer(userEmail, userPassword));
-        email.getText().clear();
+        username.getText().clear();
         password.getText().clear();
         confirmPassword.getText().clear();
+        finish();
     }
 }

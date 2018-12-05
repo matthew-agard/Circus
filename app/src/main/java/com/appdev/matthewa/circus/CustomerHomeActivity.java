@@ -12,12 +12,15 @@ public class CustomerHomeActivity extends AppCompatActivity {
     private ImageButton createCircusDay, reviewCircusDay;
     private TextView createCircusDayText, reviewCircusDayText;
     private Button logout;
+    private String customerUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Customer Home Page");
         setContentView(R.layout.customer_home_page);
+
+        customerUsername = getIntent().getStringExtra("Username");
 
         createCircusDay = findViewById(R.id.view_pay_stubs);
         createCircusDay.setOnClickListener(new View.OnClickListener() {
@@ -62,11 +65,13 @@ public class CustomerHomeActivity extends AppCompatActivity {
 
     private void visitCircus() {
         Intent i = new Intent(CustomerHomeActivity.this, CustomerPickCircusDateActivity.class);
+        i.putExtra("Username", customerUsername);
         startActivity(i);
     }
 
     private void writeReview() {
         Intent i = new Intent(CustomerHomeActivity.this, CustomerReviewActivity.class);
+        i.putExtra("Username", customerUsername);
         startActivity(i);
     }
 }

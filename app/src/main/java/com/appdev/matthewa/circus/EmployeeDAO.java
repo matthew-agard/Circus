@@ -13,11 +13,11 @@ public interface EmployeeDAO {
     @Query("SELECT * FROM Employee WHERE employeeType = 'Manager' AND email = :email AND password = :password")
     Employee findManagerLogin(String email, String password);
 
-    @Insert
-    void insertPerformer(Employee... employees);
+    @Query("SELECT DISTINCT act FROM Employee")
+    String[] getAllActs();
 
     @Insert
-    void insertManager(Employee... employees);
+    void insertEmployee(Employee... employees);
 
     @Delete
     void deletePerformer(Employee... employees);

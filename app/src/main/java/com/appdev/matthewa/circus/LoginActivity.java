@@ -109,8 +109,9 @@ public class LoginActivity extends AppCompatActivity {
 
             if(user == null)
                 validLogin = false;
-            else
+            else {
                 validLogin = true;
+            }
 
             return validLogin;
         }
@@ -119,9 +120,11 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean validLogin) {
             if (validLogin) {
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                String customerUsername = email.getText().toString();
                 email.getText().clear();
                 password.getText().clear();
                 Intent i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
+                i.putExtra("Username", customerUsername);
                 startActivity(i);
             }
             else
@@ -183,6 +186,38 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+//    private class CreatePerformersTask extends AsyncTask<Employee, Void, Void> {
+//        @Override
+//        protected Void doInBackground(Employee... employees) {
+//            for (Employee employee : employees) {
+//                db.employeeDAO().insertEmployee(employee);
+//            }
+//
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            Toast.makeText(LoginActivity.this, "Performers instantiated", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
+//    private class CreateManagersTask extends AsyncTask<Employee, Void, Void> {
+//        @Override
+//        protected Void doInBackground(Employee... employees) {
+//            for (Employee employee : employees) {
+//                db.employeeDAO().insertEmployee(employee);
+//            }
+//
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            Toast.makeText(LoginActivity.this, "Managers instantiated", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
     private void createUserAccount() {
         email.getText().clear();
         password.getText().clear();
@@ -195,8 +230,8 @@ public class LoginActivity extends AppCompatActivity {
 //                                            new Employee("kayla@circus.org", "tightrope1", "Kayla", "Performer", "Tightrope"),
 //                                            new Employee("bobby@circus.org", "trapeze1", "Bobby", "Performer", "Trapeze"),
 //                                            new Employee("ashley@circus.org", "unicycle1", "Ashley", "Performer", "Unicycle"));
-//        new CreateManagersTask().execute(new Employee("matthew@circus.org", "master", "Matthew Agard", "Manager", null),
-//                                            new Employee("min@circus.org", "master", "Min Seung", "Manager", null));
+//        new CreateManagersTask().execute(new Employee("matthew@circus.org", "master", "Matthew", "Manager", null),
+//                                            new Employee("min@circus.org", "master", "Min", "Manager", null));
     }
 
     private void verifyAccountCreation(int userTypePosition) {
