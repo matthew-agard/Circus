@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Date;
 
 public class CustomerCircusDateDetailsActivity extends AppCompatActivity {
@@ -95,9 +94,6 @@ public class CustomerCircusDateDetailsActivity extends AppCompatActivity {
 
             TextView actName = convertView.findViewById(R.id.act_list_name);
             actName.setText(votedAct.getAct());
-
-//            TextView numVotes = convertView.findViewById(R.id.act_list_num_votes);
-//            numVotes.setText(votedAct.getVotes());
 
             return convertView;
         }

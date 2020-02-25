@@ -9,8 +9,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CustomerHomeActivity extends AppCompatActivity {
-    private ImageButton createCircusDay, reviewCircusDay;
-    private TextView createCircusDayText, reviewCircusDayText;
+    private ImageButton createCircusDay;
+    private TextView createCircusDayText;
     private Button logout;
     private String customerUsername;
 
@@ -22,7 +22,7 @@ public class CustomerHomeActivity extends AppCompatActivity {
 
         customerUsername = getIntent().getStringExtra("Username");
 
-        createCircusDay = findViewById(R.id.view_pay_stubs);
+        createCircusDay = findViewById(R.id.circus_day_pic);
         createCircusDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,27 +30,11 @@ public class CustomerHomeActivity extends AppCompatActivity {
             }
         });
 
-        createCircusDayText = findViewById(R.id.pay_stubs_text);
+        createCircusDayText = findViewById(R.id.circus_day_text);
         createCircusDayText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 visitCircus();
-            }
-        });
-
-        reviewCircusDay = findViewById(R.id.view_feedback);
-        reviewCircusDay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeReview();
-            }
-        });
-
-        reviewCircusDayText = findViewById(R.id.feedback_text);
-        reviewCircusDayText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeReview();
             }
         });
 
@@ -65,12 +49,6 @@ public class CustomerHomeActivity extends AppCompatActivity {
 
     private void visitCircus() {
         Intent i = new Intent(CustomerHomeActivity.this, CustomerPickCircusDateActivity.class);
-        i.putExtra("Username", customerUsername);
-        startActivity(i);
-    }
-
-    private void writeReview() {
-        Intent i = new Intent(CustomerHomeActivity.this, CustomerReviewActivity.class);
         i.putExtra("Username", customerUsername);
         startActivity(i);
     }

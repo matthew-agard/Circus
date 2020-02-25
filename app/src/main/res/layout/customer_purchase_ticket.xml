@@ -11,12 +11,12 @@
         android:layout_width="70dp"
         android:layout_height="26dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="192dp"
         android:layout_marginEnd="8dp"
         android:text="Quantity"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/multiply"
-        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -25,11 +25,12 @@
         android:layout_width="95dp"
         android:layout_height="26dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="192dp"
         android:layout_marginEnd="8dp"
         android:text="Ticket Price"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toEndOf="@+id/multiply"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -37,8 +38,8 @@
         android:id="@+id/multiply"
         android:layout_width="21dp"
         android:layout_height="37dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="24dp"
         android:text="X"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/display_price"
@@ -67,8 +68,10 @@
         android:text="Confirm Purchase"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiply"/>
+        app:layout_constraintTop_toBottomOf="@+id/multiply"
+        app:layout_constraintVertical_bias="0.138"/>
 
     <Spinner
         android:id="@+id/num_tickets"
@@ -78,7 +81,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/multiply"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quantity"/>
 

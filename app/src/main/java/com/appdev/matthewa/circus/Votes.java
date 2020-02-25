@@ -4,7 +4,6 @@ import android.arch.persistence.room.Entity;
 import android.support.annotation.NonNull;
 import java.util.Date;
 
-
 @Entity(primaryKeys = {"date", "act"})
 public class Votes {
 

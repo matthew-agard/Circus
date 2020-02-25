@@ -1,41 +1,6 @@
 <resources>
     <string name="app_name">Circus</string>
 
-    <string-array name="user_type">
-        <item>Customer</item>
-        <item>Performer</item>
-        <item>Manager</item>
-    </string-array>
-
-    <string-array name="pay_periods">
-        <item>1/1 — 1/14</item>
-        <item>1/15 — 1/28</item>
-        <item>1/29 — 2/11</item>
-        <item>2/12 — 2/25</item>
-        <item>2/26 — 3/11</item>
-        <item>3/12 — 3/25</item>
-        <item>3/26 — 4/8</item>
-        <item>4/9 — 4/22</item>
-        <item>4/23 — 5/6</item>
-        <item>5/7 — 5/20</item>
-        <item>5/21 — 6/3</item>
-        <item>6/4 — 6/17</item>
-        <item>6/18 — 7/1</item>
-        <item>7/2 — 7/15</item>
-        <item>7/16 — 7/29</item>
-        <item>7/30 — 8/12</item>
-        <item>8/13 — 8/26</item>
-        <item>8/27 — 9/9</item>
-        <item>9/10 — 9/23</item>
-        <item>9/24 — 10/7</item>
-        <item>10/8 — 10/21</item>
-        <item>10/22 — 11/4</item>
-        <item>11/5 — 11/18</item>
-        <item>11/19 — 12/1</item>
-        <item>12/2 — 12/15</item>
-        <item>12/16 — 12/31</item>
-    </string-array>
-
     <string-array name="ticket_selection">
         <item>1</item>
         <item>2</item>

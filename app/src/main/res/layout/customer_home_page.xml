@@ -7,36 +7,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/feedback_text"
-        android:layout_width="185dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="64dp"
-        android:text="Review Previously Watched Acts "
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <ImageButton
-        android:id="@+id/view_feedback"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="40dp"
-        android:src="@drawable/reviews"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/feedback_text"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
         android:id="@+id/welcome_text"
         android:layout_width="230dp"
         android:layout_height="39dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="Welcome!"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,19 +19,15 @@
         />
 
     <ImageButton
-        android:id="@+id/view_pay_stubs"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
+        android:id="@+id/circus_day_pic"
+        android:layout_width="199dp"
+        android:layout_height="178dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="76dp"
-        app:layout_constraintBottom_toTopOf="@+id/view_feedback"
-        app:layout_constraintEnd_toStartOf="@+id/pay_stubs_text"
-        app:layout_constraintHorizontal_bias="0.25"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/circus_day_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_text"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/circus_spend_day"/>
 
     <Button
@@ -64,26 +35,28 @@
         android:layout_width="96dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="Logout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toEndOf="@+id/welcome_text"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
-        android:id="@+id/pay_stubs_text"
-        android:layout_width="185dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/circus_day_text"
+        android:layout_width="342dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="140dp"
-        android:text="Spend a Day With Us at the Circus"
+        android:layout_marginBottom="232dp"
+        android:text="Spend a Day With Us at the Circus!"
+        android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/feedback_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logout"
-        app:layout_constraintVertical_bias="1.0"/>
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 </android.support.constraint.ConstraintLayout>

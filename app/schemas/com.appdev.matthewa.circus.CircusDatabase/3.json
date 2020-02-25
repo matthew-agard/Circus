@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "f15c71b183665254f5e6ff65c403497e",
+    "identityHash": "70c9bb96dcadb583adc9453399da29d2",
     "entities": [
       {
         "tableName": "Customer",
@@ -68,79 +68,6 @@
         "primaryKey": {
           "columnNames": [
             "email"
-          ],
-          "autoGenerate": false
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "Payroll",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `act` TEXT NOT NULL, `pay` INTEGER NOT NULL, PRIMARY KEY(`date`, `act`))",
-        "fields": [
-          {
-            "fieldPath": "date",
-            "columnName": "date",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "act",
-            "columnName": "act",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "pay",
-            "columnName": "pay",
-            "affinity": "INTEGER",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "date",
-            "act"
-          ],
-          "autoGenerate": false
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "Review",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`customer` TEXT NOT NULL, `attendanceDate` INTEGER NOT NULL, `act` TEXT NOT NULL, `review` TEXT NOT NULL, PRIMARY KEY(`customer`, `attendanceDate`, `act`))",
-        "fields": [
-          {
-            "fieldPath": "customer",
-            "columnName": "customer",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "attendanceDate",
-            "columnName": "attendanceDate",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "act",
-            "columnName": "act",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "review",
-            "columnName": "review",
-            "affinity": "TEXT",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "customer",
-            "attendanceDate",
-            "act"
           ],
           "autoGenerate": false
         },
@@ -216,7 +143,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f15c71b183665254f5e6ff65c403497e\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"70c9bb96dcadb583adc9453399da29d2\")"
     ]
   }
 }

@@ -49,44 +49,5 @@
             android:label="Circus">
         </activity>
 
-        <activity
-            android:name=".CustomerReviewActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".PerformerHomeActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".PerformerFeedbackActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".PerformerPayStubsActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".PerformerScheduleActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".ManagerHomeActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".ManagerPayrollActivity"
-            android:label="Circus">
-        </activity>
-
-        <activity
-            android:name=".ManagerScheduleActivity"
-            android:label="Circus">
-        </activity>
     </application>
 </manifest>

@@ -7,12 +7,6 @@ import android.arch.persistence.room.Query;
 
 @Dao
 public interface EmployeeDAO {
-    @Query("SELECT * FROM Employee WHERE employeeType = 'Performer' AND email = :email AND password = :password")
-    Employee findPerformerLogin(String email, String password);
-
-    @Query("SELECT * FROM Employee WHERE employeeType = 'Manager' AND email = :email AND password = :password")
-    Employee findManagerLogin(String email, String password);
-
     @Query("SELECT DISTINCT act FROM Employee")
     String[] getAllActs();
 

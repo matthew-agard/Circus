@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CustomerCastVoteActivity extends AppCompatActivity {
     private ListView displayActs;
@@ -41,14 +40,6 @@ public class CustomerCastVoteActivity extends AppCompatActivity {
         displayActs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                for (String act : votedActs){
-//                    if(act.equals(parent.getItemAtPosition(position).toString())) {
-//                        votedActs.remove(act);
-//                        view.setBackgroundColor(getResources().getColor(android.R.color.white));
-//                        actsSelected--;
-//                    }
-//                }
-
                 if(actsSelected < 3) {
                     votedActs.add(parent.getItemAtPosition(position).toString());
                     view.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
@@ -111,23 +102,6 @@ public class CustomerCastVoteActivity extends AppCompatActivity {
     private class CastVoteTask extends AsyncTask<Votes, Void, Void> {
         @Override
         protected Void doInBackground(Votes... votes) {
-//            Votes[] isVotedActs = db.votesDAO().isAlreadyVoted(DateConverter.toDate(customerDate));
-//            ArrayList<Votes> isVotedActList = new ArrayList<>(Arrays.asList(isVotedActs));
-//            ArrayList<String> isVotedActStrings = new ArrayList<>();
-//            for (Votes vote : isVotedActs) {
-//                isVotedActStrings.add(vote.getAct());
-//            }
-//
-//            for (Votes vote : votes) {
-//                if(!isVotedActList.contains(vote.getAct()))
-//                    db.votesDAO().castInitialVote(vote);
-//                else {
-//                    int currentVoteCount = isVotedActList.get(isVotedActList.indexOf(vote)).getVotes();
-//                    vote.setVotes(currentVoteCount + 1);
-//                    db.votesDAO().incrementVote(vote);
-//                }
-//            }
-
             db.votesDAO().castInitialVote(votes);
             return null;
         }
