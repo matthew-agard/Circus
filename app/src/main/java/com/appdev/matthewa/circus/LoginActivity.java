@@ -24,7 +24,19 @@ public class LoginActivity extends AppCompatActivity {
         setTitle("Login");
 
         db = CircusDatabase.getDatabase(this);
-        
+
+        /**
+         * Uncomment these AsyncTask class calls to perform dummy data insertion
+         * To avoid duplicate record insertion, comment these lines again after the running program once
+         */
+//        new CreatePerformersTask().execute(new Employee("daniel@circus.org", "animals1",  "Animals"),
+//                                            new Employee("nathan@circus.org", "clowns1", "Clowns"),
+//                                            new Employee("greg@circus.org", "juggles1",  "Juggling"),
+//                                            new Employee("alexis@circus.org", "stilts1",  "Stilts"),
+//                                            new Employee("kayla@circus.org", "tightrope1",  "Tightrope"),
+//                                            new Employee("bobby@circus.org", "trapeze1",  "Trapeze"),
+//                                            new Employee("ashley@circus.org", "unicycle1", "Unicycle"));
+
         email = findViewById(R.id.user_username);
         password = findViewById(R.id.user_password);
 
@@ -75,50 +87,26 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-//    private class CreatePerformersTask extends AsyncTask<Employee, Void, Void> {
-//        @Override
-//        protected Void doInBackground(Employee... employees) {
-//            for (Employee employee : employees) {
-//                db.employeeDAO().insertEmployee(employee);
-//            }
-//
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//            Toast.makeText(LoginActivity.this, "Performers instantiated", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    private class CreateManagersTask extends AsyncTask<Employee, Void, Void> {
-//        @Override
-//        protected Void doInBackground(Employee... employees) {
-//            for (Employee employee : employees) {
-//                db.employeeDAO().insertEmployee(employee);
-//            }
-//
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//            Toast.makeText(LoginActivity.this, "Managers instantiated", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    private class CreatePerformersTask extends AsyncTask<Employee, Void, Void> {
+        @Override
+        protected Void doInBackground(Employee... employees) {
+            for (Employee employee : employees) {
+                db.employeeDAO().insertEmployee(employee);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            Toast.makeText(LoginActivity.this, "Performers instantiated", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     private void createUserAccount() {
         email.getText().clear();
         password.getText().clear();
         Intent i = new Intent(LoginActivity.this, CustomerCreateAccountActivity.class);
         startActivity(i);
-//        new CreatePerformersTask().execute(new Employee("daniel@circus.org", "animals1", "Daniel", "Performer", "Animals"),
-//                                            new Employee("nathan@circus.org", "clowns1", "Nathan", "Performer", "Clowns"),
-//                                            new Employee("greg@circus.org", "juggles1", "Greg", "Performer", "Juggling"),
-//                                            new Employee("alexis@circus.org", "stilts1", "Alexis", "Performer", "Stilts"),
-//                                            new Employee("kayla@circus.org", "tightrope1", "Kayla", "Performer", "Tightrope"),
-//                                            new Employee("bobby@circus.org", "trapeze1", "Bobby", "Performer", "Trapeze"),
-//                                            new Employee("ashley@circus.org", "unicycle1", "Ashley", "Performer", "Unicycle"));
-//        new CreateManagersTask().execute(new Employee("matthew@circus.org", "master", "Matthew", "Manager", null));
     }
 }

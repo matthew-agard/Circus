@@ -12,18 +12,13 @@ public class Employee {
     @NonNull private String employeeType;
     private String act;
 
-    public Employee(@NonNull String email, @NonNull String password) {
+    public Employee(@NonNull String email, @NonNull String password, String act) {
         this.email = email;
         this.password = password;
+        this.name = "Random";
+        this.employeeType = "Performer";
+        this.act = act;
     }
-
-//    public Employee(@NonNull String email, @NonNull String password, @NonNull String name, @NonNull String employeeType, String act) {
-//        this.email = email;
-//        this.password = password;
-//        this.name = name;
-//        this.employeeType = employeeType;
-//        this.act = act;
-//    }
 
     @NonNull
     public String getEmail() {
